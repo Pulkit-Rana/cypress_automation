@@ -26,12 +26,15 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('login', () => {
-    cy.visit("https://opensource-demo.orangehrmlive.com/")
-    cy.get('[class="orangehrm-login-branding"]').should("be.visible").and("have.class", "orangehrm-login-branding")
-    cy.get('[placeholder="Username"]').type("Admin")
-    cy.get('[placeholder="Password"]').type("admin123")
-    cy.get('.oxd-button').click()
-    cy.get('.oxd-main-menu-item-wrapper').contains("Dashboard").should("have.class", "oxd-main-menu-item active")
+Cypress.Commands.add("login", () => {
+  cy.visit("https://opensource-demo.orangehrmlive.com/")
+  cy.get('[class="orangehrm-login-branding"]')
+    .should("be.visible")
+    .and("have.class", "orangehrm-login-branding")
+  cy.get('[placeholder="Username"]').type("Admin")
+  cy.get('[placeholder="Password"]').type("admin123")
+  cy.get(".oxd-button").click()
+  cy.get(".oxd-main-menu-item-wrapper")
+    .contains("Dashboard")
+    .should("have.class", "oxd-main-menu-item active")
 })
-

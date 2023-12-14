@@ -1,12 +1,10 @@
 {
-
   "scripts": {
     "start": "cypress run",
     "cy:open": "cypress open",
-    "lint" : "eslint .",
-    "pretty" : "prettier --write \"./**/*.{js,ts,tsx,json}\""
+    "lint": "eslint .",
+    "pretty": "prettier --write \"./**/*.{js,ts,tsx,json}\""
   },
-
 
   "dependencies": {
     "cypress": "^13.4.0",
