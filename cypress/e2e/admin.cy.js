@@ -14,8 +14,7 @@ describe('Validating the admin tab', () => {
 
     it('Pre-req Writing the EmpName into the fixture', () => {
         cy.get("@admin").then((admin) => {
-            cy.get(".oxd-table-body > div:nth-child(n+1) > div > div:nth-child(2) > div").contains(admin.username)
-                .parents(".oxd-table-card").find("div:nth-child(n+1) div:nth-child(4) > div").invoke("text").as("empName").then(($empName) => {
+            cy.get(".oxd-table-body > div:nth-child(n+1) > div > div:nth-child(2) > div").contains(admin.username).parents(".oxd-table-card").find("div:nth-child(n+1) div:nth-child(4) > div").invoke("text").as("empName").then(($empName) => {
                     let empName = $empName.split(" ")[0]
                     cy.log(empName)
                     cy.readFile("cypress/fixtures/admin.json", err => {
@@ -25,9 +24,9 @@ describe('Validating the admin tab', () => {
                     }).then(text => {
                         text.empname = empName //fixture file's empName =  CgZJZaSlSB
                         cy.writeFile("cypress/fixtures/admin.json", JSON.stringify(text))
-                    })
-                })
-        })
+                    });
+                });
+        });
     })
 
     it('Validate the Admin Page', () => {
